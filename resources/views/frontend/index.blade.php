@@ -1,24 +1,9 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
-<!doctype html>
-<html lang="en">
+@extends('frontend.main')
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Online Study - Education Category Responsive Web Template - Home : W3Layouts</title>
-    <!-- google-fonts -->
-    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- //google-fonts -->
-    <!-- Template CSS Style link -->
-    <link rel="stylesheet" href="frontend_assets/css/style-starter.css">
-</head>
-
-<body>
-
+@section('title')
+    Home
+@endsection
+@section('content')
     <!--header-->
     @include('frontend.includes.header')
     <!--//header-->
@@ -113,53 +98,24 @@ Author URL: http://w3layouts.com
         <div class="teams-32 py-md-4">
             <div class="container">
                 <div class="title-main text-center mx-auto mb-4">
-                    <h3 class="title-big">Our Expert Teachers</h3>
-                    <p class="sub-title mt-2">Cum doctus civibus efficiantur in imperdiet deterruisset. Cras efficitur,
-                        metus
-                        gravida suscipit cursus, dui diam pre lorem id
-                        lectus.</p>
+                    <h3 class="title-big">Organisasi</h3>
                 </div>
                 <div class="row main-contteam-32 mt-sm-5 pt-lg-2">
-                    <div class="col-lg-3 col-6 team-main-19">
-                        <div class="column-19">
-                            <a href="#team"><img class="img-fluid" src="frontend_assets/images/team1.jpg"
-                                    alt=" "></a>
+                    @forelse ($organisasi as $item)
+                        <div class="col-lg-3 col-6 team-main-19">
+                            <div class="column-19">
+                                <a href="#team"><img class="img-fluid" src="/images/organisasi/{{ $item->gambar }}"
+                                        alt=" "></a>
+                            </div>
+                            <div class="right-team-9">
+                                <h6><a href="#team" class="title-team-32">{{ $item->organisasi }}</a></h6>
+                                <p class="sm-text-32">{{ $item->deskripsi }}</p>
+                            </div>
                         </div>
-                        <div class="right-team-9">
-                            <h6><a href="#team" class="title-team-32">Chris Tina</a></h6>
-                            <p class="sm-text-32">Web Designer</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 team-main-19">
-                        <div class="column-19">
-                            <a href="#team"><img class="img-fluid" src="frontend_assets/images/team2.jpg"
-                                    alt=" "></a>
-                        </div>
-                        <div class="right-team-9">
-                            <h6><a href="#team" class="title-team-32">Diego Mota</a></h6>
-                            <p class="sm-text-32">CSS, HTML</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 team-main-19">
-                        <div class="column-19">
-                            <a href="#team"><img class="img-fluid" src="frontend_assets/images/team3.jpg"
-                                    alt=" "></a>
-                        </div>
-                        <div class="right-team-9">
-                            <h6><a href="#team" class="title-team-32">Anton Bone</a></h6>
-                            <p class="sm-text-32">UI/UX Designer</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 team-main-19">
-                        <div class="column-19">
-                            <a href="#team"><img class="img-fluid" src="frontend_assets/images/team4.jpg"
-                                    alt=" "></a>
-                        </div>
-                        <div class="right-team-9">
-                            <h6><a href="#team" class="title-team-32">Neoye Achi</a></h6>
-                            <p class="sm-text-32">Web Developer</p>
-                        </div>
-                    </div>
+                    @empty
+                        <h3>Organisasi belum tersedia</h3>
+                    @endforelse
+
                 </div>
             </div>
         </div>
@@ -218,15 +174,14 @@ Author URL: http://w3layouts.com
                     @forelse ($berita as $item)
                         <div class="col-lg-4 col-sm-6">
                             <div class=" grids5-info">
-                                {{-- <a href="#blog"><img src="images/{{ $item->gambar }}" alt="" /></a> --}}
-                                <a href=""><img src="{{ '/images/berita/' . $item->gambar }}"
-                                        alt="{{ $item->gambar }}"></a>
+                                <a href="{{ '/detail-berita/' . $item->id_berita }}"><img
+                                        src="{{ '/images/berita/' . $item->gambar }}" alt="{{ $item->gambar }}"></a>
                                 <div class="blog-info">
-                                    <h4><a href="#blog">{{ $item->judul }}</a></h4>
+                                    <h4><a href="{{ '/detail-berita/' . $item->id_berita }}">{{ $item->judul }}</a></h4>
                                     <p>
                                         <?= substr($item->isi, 0, 100) . '...' ?>
                                     </p>
-                                    <a href="{{ '' . $item->id_berita }}">Lihat
+                                    <a href="{{ '/detail-berita/' . $item->id_berita }}">Lihat
                                         Selengkapnya</a>
                                 </div>
                             </div>
@@ -244,11 +199,6 @@ Author URL: http://w3layouts.com
         <div class="footer-sub">
             <div class="container">
                 <div class="text-txt">
-                    <div class="right-side text-center">
-                        <h4>Do you want to our best popular online courses</h4>
-                        <a class="btn button-style mt-4" href="about.html">Get Started<i
-                                class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    </div>
                     <div class="row sub-columns">
                         <div class="col-lg-4 col-md-6 col-sm-8 sub-one-left">
                             <h6>About </h6>
@@ -257,16 +207,13 @@ Author URL: http://w3layouts.com
                                 laudantium, totam rem aperiam, eaque ipsa quae ab.</p>
                             <div class="columns-2">
                                 <ul class="social">
-                                    <li><a href="#facebook"><span class="fa fa-facebook"
-                                                aria-hidden="true"></span></a>
+                                    <li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
                                     </li>
-                                    <li><a href="#linkedin"><span class="fa fa-linkedin"
-                                                aria-hidden="true"></span></a>
+                                    <li><a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
                                     </li>
                                     <li><a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
                                     </li>
-                                    <li><a href="#google"><span class="fa fa-google-plus"
-                                                aria-hidden="true"></span></a>
+                                    <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
                                     </li>
                                     <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
                                     </li>
@@ -280,10 +227,10 @@ Author URL: http://w3layouts.com
                                 </li>
                                 <li><a href="about.html"><span class="fa fa-angle-double-right mr-2"></span>About</a>
                                 </li>
-                                <li><a href="courses.html"><span
-                                            class="fa fa-angle-double-right mr-2"></span>Courses</a></li>
-                                <li><a href="contact.html"><span
-                                            class="fa fa-angle-double-right mr-2"></span>Contact</a></li>
+                                <li><a href="courses.html"><span class="fa fa-angle-double-right mr-2"></span>Courses</a>
+                                </li>
+                                <li><a href="contact.html"><span class="fa fa-angle-double-right mr-2"></span>Contact</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="col-lg-3 col-sm-6 sub-two-right pl-lg-5 mt-lg-0 mt-sm-5 mt-4">
@@ -512,6 +459,7 @@ Author URL: http://w3layouts.com
     <script src="frontend_assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap-->
     <!-- //Js scripts -->
-</body>
+    </body>
 
-</html>
+    </html>
+@endsection

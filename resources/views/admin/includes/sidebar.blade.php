@@ -71,6 +71,12 @@
                     <p>Jurusan</p>
                 </a>
             </li>
+            <li>
+                <a href="/admin/organisasi/">
+                    <i class="pe-7s-users"></i>
+                    <p>Organisasi</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

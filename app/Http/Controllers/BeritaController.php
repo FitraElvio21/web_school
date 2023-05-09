@@ -26,6 +26,8 @@ class BeritaController extends Controller
     {
         $request->validate([
             "judul" => "required",
+            "tanggal_post" => "required",
+            "author" => "required",
             "isi" => "required",
             "gambar" => "required|max:2000"
         ]);
@@ -41,6 +43,8 @@ class BeritaController extends Controller
         $berita = BeritaModel::create([
             "id_berita"=>$uuid,
             "judul" =>$request->judul,
+            "tanggal_post" =>$request->tanggal_post,
+            "author" =>$request->author,
             "isi" =>$request->isi,
             "gambar"=>$nama_file
         ]);
@@ -59,6 +63,8 @@ class BeritaController extends Controller
     {
         $this->validate($request,[
             "judul" => "required",
+            "tanggal_post" => "required",
+            "author" => "required",
             "isi" => "required"
         ]);
         $berita = BeritaModel::where("id_berita", "=", $idBerita)->first();
@@ -77,6 +83,8 @@ class BeritaController extends Controller
         $update = BeritaModel::where('id_berita', $idBerita);
         $update->update([
             "judul" => $request->judul,
+            "tanggal_post" => $request->tanggal_post,
+            "author" => $request->author,
             "isi" => $request->isi,
             "gambar" => ($cekGambar) ? $nama_file : $berita['gambar']
         ]);

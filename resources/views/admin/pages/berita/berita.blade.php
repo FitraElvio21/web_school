@@ -13,6 +13,8 @@
                     <tr>
                         <th>#</th>
                         <th>Judul</th>
+                        <th>Tanggal Post</th>
+                        <th>Author</th>
                         <th>isi</th>
                         <th>gambar</th>
                         <th>Action</th>
@@ -23,6 +25,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->judul }}</td>
+                            <td>{{ $item->tanggal_post }}</td>
+                            <td>{{ $item->author }}</td>
                             <td>
                                 <?= substr($item->isi,0,100)."..."?>
                                 <a href="{{ '/admin/berita/detail-berita/' . $item->id_berita }}">Lihat Selengkapnya</a>

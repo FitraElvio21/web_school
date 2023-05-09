@@ -16,7 +16,14 @@
         <div class="form-group">
             <label for="">Isi</label>
             <textarea name="isi" id="isi" cols="160" rows="5">{{ $berita['isi'] }}</textarea>
-
+            <div class="form-group">
+                <label for="">Tanggal Post</label>
+                <input type="date" name="tanggal_post" class="form-control" id="" value="{{ $berita['tanggal_post'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Author</label>
+                <input type="text" name="author" class="form-control" id="" value="{{ $berita['author'] }}">
+            </div>
         </div>
         <div class="form-group">
             <label for="">Gambar</label>

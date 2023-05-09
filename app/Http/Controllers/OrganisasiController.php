@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\OrganisasiModel;
+use Faker\Factory;
 use Illuminate\Http\Request;
 
 class OrganisasiController extends Controller

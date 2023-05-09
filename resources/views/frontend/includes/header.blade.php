@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg stroke">
             <h1>
                 <a class="navbar-brand" href="index.html">
-                    <img class="img-fluid" src="assets/images/logo.png" alt=" "> Online Study
+                    <img class="img-fluid" src="/images/logo/{{ $logo->logo }}" alt=" " width="40"> {{ $logo->nama }}
                 </a>
             </h1>
             <!-- if logo is image enable this
@@ -26,7 +26,20 @@
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="courses.html">Courses</a>
+                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Akademik
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item" href="#">Fakultas Ilmu Komputer</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact Us</a>
@@ -42,11 +55,10 @@
                                 </h4>
                                 <form action="#error" method="GET" class="search-box">
                                     <div class="input-search"> <span class="fa fa-search mr-2"
-                                            aria-hidden="true"></span><input type="search"
-                                            placeholder="Enter Keyword" name="search" required="required"
-                                            autofocus="">
+                                            aria-hidden="true"></span><input type="search" placeholder="Enter Keyword"
+                                            name="search" required="required" autofocus="">
                                     </div>
-                                    <button type="submit" class="btn button-style">Search</button>
+                                    <button type="submit" class="btn button-style">Daftar</button>
                                 </form>
                             </div>
                             <a class="close" href="#close">×</a>

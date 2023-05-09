@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
@@ -26,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 */
 // frontend
 Route::get('', [HomeController::class, 'index']);
+Route::get('/detail-berita/{idBerita}', [HomeController::class, 'detailBerita']);
+
 // auth
 Route::get('/admin/login', [AuthController::class, 'index']);
 Route::get('/admin/logout', [AuthController::class, 'logout']);
@@ -101,4 +104,12 @@ Route::group(['middleware' => 'cek-auth'], function () {
     Route::put('/admin/jurusan/update/{idJurusan}', [JurusanController::class, 'update']);
     Route::delete('/admin/jurusan/delete/{idJurusan}', [JurusanController::class, 'delete']);
     Route::get('/admin/jurusan/detail-jurusan/{idJurusan}', [JurusanController::class, 'detail']);
+    // Organisasi
+    Route::get('/admin/organisasi/', [OrganisasiController::class, 'index']);
+    Route::get('/admin/organisasi/create-form', [OrganisasiController::class, 'createForm']);
+    Route::post('/admin/organisasi/create', [OrganisasiController::class, 'create']);
+    Route::get('/admin/organisasi/edit-form/{idOrganisasi}', [OrganisasiController::class, 'editForm']);
+    Route::put('/admin/organisasi/update/{idOrganisasi}', [OrganisasiController::class, 'update']);
+    Route::delete('/admin/organisasi/delete/{idOrganisasi}', [OrganisasiController::class, 'delete']);
+    Route::get('/admin/organisasi/detail-organisasi/{idOrganisasi}', [OrganisasiController::class, 'detail']);
 });
