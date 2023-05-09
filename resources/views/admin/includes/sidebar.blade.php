@@ -58,10 +58,17 @@
                     <i class="pe-7s-info"></i>
                     <p>About</p>
                 </a>
-            </li><li>
+            </li>
+            <li>
                 <a href="/admin/prestasi/">
                     <i class="pe-7s-medal"></i>
                     <p>Prestasi</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/jurusan/">
+                    <i class="pe-7s-medal"></i>
+                    <p>Jurusan</p>
                 </a>
             </li>
         </ul>

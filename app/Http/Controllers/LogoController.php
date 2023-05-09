@@ -13,7 +13,7 @@ class LogoController extends Controller
         $data = LogoModel::first();
         return view('admin.pages.logo.logo', compact('data'));
     }
-    
+
     public function editForm($idLogo)
     {
         $logo = LogoModel::where("id_logo", "=", $idLogo)->first();
@@ -21,20 +21,20 @@ class LogoController extends Controller
     }
     public function update(Request $request, $idLogo)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             "nama" => "required"
         ]);
         $logo = LogoModel::where("id_logo", "=", $idLogo)->first();
         $cekLogo = $request->hasFile('logo');
         $nama_file = "";
-        if ($cekLogo){
+        if ($cekLogo) {
             $oldLogo = public_path() . "/images/logo/" . $logo['logo'];
 
             if (file_exists($oldLogo)) {
                 unlink($oldLogo);
             }
             $file = $request->file('logo');
-            $nama_file = rand(1111,9999) . $file->getClientOriginalName();
+            $nama_file = rand(1111, 9999) . $file->getClientOriginalName();
             $file->move(public_path() . "/images/logo/", $nama_file);
         }
         $update = LogoModel::where('id_logo', $idLogo);
@@ -43,9 +43,9 @@ class LogoController extends Controller
             "logo" => ($cekLogo) ? $nama_file : $logo['logo']
         ]);
 
-        if ($update){
+        if ($update) {
             return redirect('admin/logo')->withSuccess("logo berhasil diubah");
-        }else{
+        } else {
             return redirect()->back()->withErrors("logo gagal diubah");
         }
     }

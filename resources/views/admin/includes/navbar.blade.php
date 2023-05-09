@@ -69,7 +69,7 @@
                     </ul>
                 </li> --}}
                 <li>
-                    <a href="#">
+                    <a href="/admin/logout" onclick="return confirm('Apakah anda ingin logout?')">
                         <p>Log out</p>
                     </a>
                 </li>

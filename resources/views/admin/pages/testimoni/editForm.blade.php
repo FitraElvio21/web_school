@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Ubah Data Testimoni</h1>
-    <form action="/admin/testimoni/update{{ $testimoni['id_testimoni'] }}" method="post" enctype="multipart/form-data">
+    <form action="/admin/testimoni/update/{{ $testimoni['id_testimoni'] }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
