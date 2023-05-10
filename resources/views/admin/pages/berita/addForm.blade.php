@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="">Isi</label>
-            <textarea name="isi" id="isi" cols="160" rows="5"></textarea>
+            <textarea name="isi" id="summernote" cols="160" rows="5"></textarea>
         </div>
         <div class="form-group">
             <label for="">Gambar</label>

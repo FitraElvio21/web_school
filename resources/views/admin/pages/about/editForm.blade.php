@@ -15,19 +15,19 @@
         </div>
         <div class="form-group">
             <label for="">Description</label>
-            <textarea name="description" id="" cols="160" rows="5">{{ $about['description'] }}</textarea>
-        </div>
+            <textarea name="description" class="summernote" cols="160" rows="5">{{ $about['description'] }}</textarea>
+        </div>      
         <div class="form-group">
             <label for="">Gambar</label>
             <input type="file" name="gambar" class="form-control" id="">
         </div>
         <div class="form-group">
-            <label for="">Visi</label>
-            <input type="text" name="visi" class="form-control" id="" value="{{ $about['visi'] }}">
+            <label for="">Visi</label><br>
+            <textarea name="visi" class="summernote" cols="160" rows="5">{{ $about['visi'] }}</textarea>
         </div>
         <div class="form-group">
-            <label for="">Misi</label>
-            <input type="text" name="misi" class="form-control" id="" value="{{ $about['misi'] }}">
+            <label for="">Misi</label><br>
+            <textarea name="misi" class="summernote" cols="160" rows="5">{{ $about['misi'] }}</textarea>
         </div>
         <button type="submit" class="btn btn-success">Ubahkan</button>
     </form>

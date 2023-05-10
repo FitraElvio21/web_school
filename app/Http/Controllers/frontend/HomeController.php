@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutModel;
 use App\Models\BeritaModel;
 use App\Models\JurusanModel;
 use App\Models\LogoModel;
@@ -22,6 +23,7 @@ class HomeController extends Controller
             "berita" => BeritaModel::all(),
             "organisasi" => OrganisasiModel::all(),
             "logo" => LogoModel::first(),
+            "about" => AboutModel::first(),
         ];
         return view('frontend.index', $data);
     }

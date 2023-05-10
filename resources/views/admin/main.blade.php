@@ -25,6 +25,8 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="/admin_assets/css/demo.css" rel="stylesheet" />
 
+    {{-- Summernote CSS --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -99,6 +101,10 @@
 <script src="/admin_assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="/admin_assets/js/bootstrap.min.js" type="text/javascript"></script>
 
+{{-- Summernote JS --}}
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+
 {{-- sweet alert --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -119,5 +125,17 @@
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="/admin_assets/js/demo.js"></script>
 
+{{-- cara menggunakan summernote dengan jquery --}}
+<script>
+    // ketika jquery sudah siap untuk digunakan
+    $(document).ready(function(){
+
+        // panggil summernote
+        $('.summernote').summernote();
+
+        // # id
+        // . class
+    });
+</script>
 
 </html>

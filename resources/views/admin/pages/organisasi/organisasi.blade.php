@@ -24,18 +24,21 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->organisasi }}</td>
                             <td>
-                                <?= substr($item->deskripsi,0,100)."..."?>
-                                <a href="{{ '/admin/organisasi/detail-organisasi/' . $item->id_organisasi }}">Lihat Selengkapnya</a>
+                                <?= substr($item->deskripsi, 0, 100) . '...' ?>
+                                <a href="{{ '/admin/organisasi/detail-organisasi/' . $item->id_organisasi }}">Lihat
+                                    Selengkapnya</a>
                             </td>
                             <td><img src="{{ '/images/organisasi/' . $item->gambar }}" alt="{{ $item->gambar }}" width="150"
-                                height="150"></td>
+                                    height="150"></td>
                             <td>
-                                <a href="{{ '/admin/organisasi/edit-form/' . $item->id_organisasi }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ '/admin/organisasi/edit-form/' . $item->id_organisasi }}"
+                                    class="btn btn-warning"><i class="pe-7s-pen" style="font-size:20px;"></i></a>
                                 <form action="{{ '/admin/organisasi/delete/' . $item->id_organisasi }}" method="post"
                                     onsubmit="return confirm('Apakah anda yakin ingin hapus data ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger">Delete</button>
+                                    <button class="btn btn-danger"><i class="pe-7s-trash"
+                                            style="font-size:20px;"></i></button>
                             </td>
                         </tr>
                     @endforeach
