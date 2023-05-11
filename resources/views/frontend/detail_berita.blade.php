@@ -23,7 +23,7 @@ Detail Berita
     <div class="container mb-5">
         <img src="/images/berita/{{ $berita->gambar }}" alt="" class="img-resposive img-fluid" style="display: block; margin: auto;"/>
         <p class="mb-3 mt-5">
-            {{ $berita->isi }}
+            <p class=""><?= $berita['isi']?></p><br>
         </p>
     </div>
 </section>

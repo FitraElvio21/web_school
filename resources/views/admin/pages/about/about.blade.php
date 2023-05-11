@@ -28,11 +28,11 @@
                             <td><img src="{{ '/images/about/' . $data->gambar }}" alt="{{ $data->gambar }}" width="150"
                                     height="150"></td>
                                     <td>
-                                        <?= substr($data->visi, 0, 50) . '...' ?>
+                                        <?= substr($data->visi, 0, 70) . '...' ?>
                                         <a href="{{ '/admin/about/detail-about/' . $data->id_about }}">Lihat Selengkapnya</a>
                                     </td>
                                     <td>
-                                        <?= substr($data->misi, 0, 50) . '...' ?>
+                                        <?= substr($data->misi, 0, 70) . '...' ?>
                                         <a href="{{ '/admin/about/detail-about/' . $data->id_about }}">Lihat Selengkapnya</a>
                                     </td>
                             <td>

@@ -36,6 +36,14 @@ class HomeController extends Controller
         ];
         return view('frontend.detail_berita', $data);
     }
+    public function moreBerita()
+    {
+        $data = [
+            "logo" => LogoModel::first(),
+            "berita" => BeritaModel::all(),
+        ];
+        return view('frontend.more_berita', $data);
+    }
 
     public function detailJurusan()
     {
@@ -52,5 +60,13 @@ class HomeController extends Controller
             "organisasi" => OrganisasiModel::all(),
         ];
         return view('frontend.detail_organisasi', $data);
+    }
+    public function detailAbout()
+    {
+        $data = [
+            "logo" => LogoModel::first(),
+            "about" => AboutModel::first(),
+        ];
+        return view('frontend.detail_about', $data);
     }
 }

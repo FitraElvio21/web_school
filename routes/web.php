@@ -27,10 +27,12 @@ use Illuminate\Support\Facades\Route;
 */
 // frontend
 Route::get('', [HomeController::class, 'index']);
-// Detail
+// Detail and More
 Route::get('/detail-berita/{idBerita}', [HomeController::class, 'detailBerita']);
+Route::get('/more-berita', [HomeController::class, 'moreBerita']);
 Route::get('/detail-jurusan', [HomeController::class, 'detailJurusan']);
 Route::get('/detail-organisasi', [HomeController::class, 'detailOrganisasi']);
+Route::get('/detail-about', [HomeController::class, 'detailAbout']);
 
 // auth
 Route::get('/admin/login', [AuthController::class, 'index']);

@@ -56,7 +56,8 @@
                     @endforeach
                 </div>
                 <div class="text-center my-5">
-                    <a class="h4 text-danger" href="/detail-jurusan">Lihat Selengkapnya <i class="fa fa-angle-double-right"></i></a>
+                    <a class="btn button-style button-2 mt-lg-10 mt-4" href="/detail-jurusan">Lihat Selengkapnya<i
+                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -67,28 +68,14 @@
         <div class="container pb-2">
             <div class="row align-items-center">
                 <div class="col-lg-6 left-wthree-img pr-lg-4">
-                    <img src="frontend_assets/images/img1.jpg" alt="" class="img-fluid">
+                    <img src="/images/about/{{ $about->gambar }}" width="300" alt="" class="img-fluid" >
                 </div>
                 <div class="col-lg-6 about-right-faq align-self mb-lg-0 mb-5 pl-xl-5">
                     <h6>About Us</h6>
-                    <h3 class="title-big mb-3"><?= $about['judul']?></h3>
-                    <p class=""> <?= substr($about->description, 0, 90) . '...' ?></p>
-                    <div class="row mt-lg-5 mt-4 mb-2">
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center left-insp-art">
-                                <img src="frontend_assets/images/book.png" alt="" class="img-fluid mr-3">
-                                <h6>Enhance your Skills</h6>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-sm-0 mt-4">
-                            <div class="d-flex align-items-center left-insp-art">
-                                <img src="frontend_assets/images/book2.png" alt="" class="img-fluid mr-3">
-                                <h6>Start Online Learning</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn button-style button-2 mt-lg-5 mt-4" href="{{ '/detail-about/' . $item->id_about }}">Lihat Selengkapnya<i
-                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    <h3 class="title-big mb-3"><?= $about['judul'] ?></h3>
+                    <p class=""> <?= substr($about->description, 0, 300) . '...' ?></p>
+                    <a class="btn button-style button-2 mt-lg-5 mt-4" href="{{ '/detail-about/' . $item->id_about }}">Lihat
+                        Selengkapnya<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -121,7 +108,8 @@
                     @endforelse
                 </div>
                 <div class="text-center my-5">
-                    <a class="h4 text-danger" href="/detail-organisasi">Lihat Selengkapnya <i class="fa fa-angle-double-right"></i></a>
+                    <a class="btn button-style button-2 mt-lg-10 mt-4" href="/detail-organisasi">Lihat Selengkapnya<i
+                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -175,14 +163,14 @@
                 </div>
                 <div class="row mt-sm-5 pt-lg-2">
                     @forelse ($berita as $item)
-                        <div class="col-lg-4 col-sm-6">
+                        <div class="col-lg-4 col-sm-5 d-flex align-items-stretch">
                             <div class=" grids5-info">
-                                <a href="{{ '/detail-berita/' . $item->id_berita }}"><img
+                                <a href="{{ '/detail-berita/' . $item->id_berita }}"><img class="berita-gambar"
                                         src="{{ '/images/berita/' . $item->gambar }}" alt="{{ $item->gambar }}"></a>
                                 <div class="blog-info">
                                     <h4><a href="{{ '/detail-berita/' . $item->id_berita }}">{{ $item->judul }}</a></h4>
                                     <p>
-                                        <?= substr($item->isi, 0, 100) . '...' ?>
+                                        <?= substr($item->isi, 0, 200) . '...' ?>
                                     </p>
                                     <a href="{{ '/detail-berita/' . $item->id_berita }}">Lihat
                                         Selengkapnya</a>
@@ -192,6 +180,10 @@
                     @empty
                         <h3>Berita tidak tersedia</h3>
                     @endforelse
+                </div>
+                <div class="text-center my-5">
+                    <a class="btn button-style button-2 mt-lg-10 mt-4" href="/more-berita">Lihat Selengkapnya<i
+                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>
