@@ -21,8 +21,8 @@
             <input type="text" name="author" class="form-control" id="">
         </div>
         <div class="form-group">
-            <label for="">Isi</label>
-            <textarea name="isi" id="summernote" cols="160" rows="5"></textarea>
+            <label for="">Isi</label><br>
+            <textarea name="isi" class="summernote" cols="186" rows="5"></textarea>
         </div>
         <div class="form-group">
             <label for="">Gambar</label>

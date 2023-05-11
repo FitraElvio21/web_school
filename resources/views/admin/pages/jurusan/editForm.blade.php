@@ -14,8 +14,8 @@
             <input type="text" name="jurusan" class="form-control" id="" value="{{ $jurusan['jurusan'] }}">
         </div>
         <div class="form-group">
-            <label for="">Description</label>
-            <textarea name="description" id="description" cols="160" rows="5">{{ $jurusan['description'] }}</textarea>
+            <label for="">Description</label><br>
+            <textarea name="description" id="description" cols="186" rows="5">{{ $jurusan['description'] }}</textarea>
 
         </div>
         <div class="form-group">

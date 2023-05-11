@@ -12,8 +12,8 @@ Detail Berita
 <div class="inner-banner">
     <section class="w3l-breadcrumb">
         <div class="container">
-            <h4 class="inner-text-title font-weight-bold mb-sm-3 mb-2">{{ $data->judul }}</h4>
-            <b>{{ $data->author }} / {{ $data->tanggal_post }}</b>
+            <h4 class="inner-text-title font-weight-bold mb-sm-3 mb-2">{{ $berita->judul }}</h4>
+            <b>{{ $berita->author }} / {{ $berita->tanggal_post }}</b>
         </div>
     </section>
 </div>
@@ -21,9 +21,9 @@ Detail Berita
 <!-- about section -->
 <section class="w3l-text-6 py-5" id="about">
     <div class="container mb-5">
-        <img src="/images/berita/{{ $data->gambar }}" alt="" class="img-resposive img-fluid" style="display: block; margin: auto;"/>
+        <img src="/images/berita/{{ $berita->gambar }}" alt="" class="img-resposive img-fluid" style="display: block; margin: auto;"/>
         <p class="mb-3 mt-5">
-            {{ $data->isi }}
+            {{ $berita->isi }}
         </p>
     </div>
 </section>

@@ -14,8 +14,8 @@
             <input type="text" name="organisasi" class="form-control" id="" value="{{ $organisasi['organisasi'] }}">
         </div>
         <div class="form-group">
-            <label for="">Deskripsi</label>
-            <textarea name="deskripsi" id="deskripsi" cols="160" rows="5">{{ $organisasi['deskripsi'] }}</textarea>
+            <label for="">Deskripsi</label><br>
+            <textarea name="deskripsi" id="deskripsi" cols="186" rows="5">{{ $organisasi['deskripsi'] }}</textarea>
         </div>
         <div class="form-group">
             <label for="">Gambar</label>

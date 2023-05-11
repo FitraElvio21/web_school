@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{ $data->judul }}</td>
                             <td>
-                                <?= substr($data->description, 0, 50) . '...' ?>
+                                <?= substr($data->description, 0, 90) . '...' ?>
                                 <a href="{{ '/admin/about/detail-about/' . $data->id_about }}">Lihat Selengkapnya</a>
                             </td>
                             <td><img src="{{ '/images/about/' . $data->gambar }}" alt="{{ $data->gambar }}" width="150"

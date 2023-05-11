@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="">Description</label>
-            <textarea name="description" id="description" cols="160" rows="5">{{ $profile['description'] }}</textarea>
+            <textarea name="description" class="summernote" cols="160" rows="5">{{ $profile['description'] }}</textarea>
         </div>
         <button type="submit" class="btn btn-success">Ubahkan</button>
     </form>

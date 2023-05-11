@@ -17,11 +17,11 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            "jurusan" => JurusanModel::all(),
+            "jurusan" => JurusanModel::limit(3)->get(),
             "testimoni" => TestimoniModel::all(),
             "prestasi" => PrestasiModel::all(),
             "berita" => BeritaModel::all(),
-            "organisasi" => OrganisasiModel::all(),
+            "organisasi" => OrganisasiModel::limit(4)->get(),
             "logo" => LogoModel::first(),
             "about" => AboutModel::first(),
         ];
@@ -29,7 +29,28 @@ class HomeController extends Controller
     }
     public function detailBerita($idBerita)
     {
-        $data = BeritaModel::where('id_berita', '=', $idBerita)->first();
-        return view('frontend.detail_berita', compact('data'));
+        $data = [
+            "logo" => LogoModel::first(),
+            "berita" => BeritaModel::where('id_berita', '=', $idBerita)->first(),
+
+        ];
+        return view('frontend.detail_berita', $data);
+    }
+
+    public function detailJurusan()
+    {
+        $data = [
+            "logo" => LogoModel::first(),
+            "jurusan" => JurusanModel::all(),
+        ];
+        return view('frontend.detail_jurusan', $data);
+    }
+    public function detailOrganisasi()
+    {
+        $data = [
+            "logo" => LogoModel::first(),
+            "organisasi" => OrganisasiModel::all(),
+        ];
+        return view('frontend.detail_organisasi', $data);
     }
 }

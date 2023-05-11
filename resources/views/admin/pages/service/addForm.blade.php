@@ -13,8 +13,8 @@
             <input type="text" name="title" class="form-control" id="">
         </div>
         <div class="form-group">
-            <label for="">Description</label>
-            <textarea name="description" id="description" cols="160" rows="5"></textarea>
+            <label for="">Description</label><br>
+            <textarea name="description" id="description" cols="186" rows="5"></textarea>
         </div>
         <div class="form-group">
             <label for="">Icon</label>
