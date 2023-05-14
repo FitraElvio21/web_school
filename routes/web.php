@@ -8,6 +8,7 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\OrganisasiController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
@@ -28,11 +29,17 @@ use Illuminate\Support\Facades\Route;
 // frontend
 Route::get('', [HomeController::class, 'index']);
 // Detail and More
+ // berita
 Route::get('/detail-berita/{idBerita}', [HomeController::class, 'detailBerita']);
 Route::get('/more-berita', [HomeController::class, 'moreBerita']);
-Route::get('/detail-jurusan', [HomeController::class, 'detailJurusan']);
+// jurusan
+Route::get('/detail-jurusan/{idJurusan}', [HomeController::class, 'detailJurusan']);
+Route::get('/more-jurusan', [HomeController::class, 'moreJurusan']);
+
 Route::get('/detail-organisasi', [HomeController::class, 'detailOrganisasi']);
 Route::get('/detail-about', [HomeController::class, 'detailAbout']);
+Route::get('/detail-visi-misi', [HomeController::class, 'detailVisiMisi']);
+Route::get('/contact', [HomeController::class, 'contact']);
 
 // auth
 Route::get('/admin/login', [AuthController::class, 'index']);
@@ -117,4 +124,7 @@ Route::group(['middleware' => 'cek-auth'], function () {
     Route::put('/admin/organisasi/update/{idOrganisasi}', [OrganisasiController::class, 'update']);
     Route::delete('/admin/organisasi/delete/{idOrganisasi}', [OrganisasiController::class, 'delete']);
     Route::get('/admin/organisasi/detail-organisasi/{idOrganisasi}', [OrganisasiController::class, 'detail']);
+    // Pesan
+    Route::get('/admin/pesan/', [PesanController::class, 'index']);
+    Route::delete('/admin/pesan/delete/{idPesan}', [PesanController::class, 'delete']);
 });

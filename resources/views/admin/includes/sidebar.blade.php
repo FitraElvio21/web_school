@@ -60,11 +60,17 @@
                 </a>
             </li>
             <li>
+                <a href="/admin/pesan/">
+                    <i class="pe-7s-mail"></i>
+                    <p>pesan</p>
+                </a>
+            </li>
+            {{-- <li>
                 <a href="/admin/prestasi/">
                     <i class="pe-7s-medal"></i>
                     <p>Prestasi</p>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="/admin/jurusan/">
                     <i class="pe-7s-medal"></i>

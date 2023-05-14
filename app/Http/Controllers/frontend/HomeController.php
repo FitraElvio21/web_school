@@ -14,6 +14,17 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+    function headerData()
+    {
+        return [
+            "logo" => LogoModel::first(),
+            "jurusan" => JurusanModel::all(),
+            "about" => AboutModel::all(),
+        ];
+    }
+
+
     public function index()
     {
         $data = [
@@ -22,15 +33,16 @@ class HomeController extends Controller
             "prestasi" => PrestasiModel::all(),
             "berita" => BeritaModel::all(),
             "organisasi" => OrganisasiModel::limit(4)->get(),
-            "logo" => LogoModel::first(),
+            "header" => $this->headerData(),
             "about" => AboutModel::first(),
         ];
         return view('frontend.index', $data);
     }
+    // Berita
     public function detailBerita($idBerita)
     {
         $data = [
-            "logo" => LogoModel::first(),
+            "header" => $this->headerData(),
             "berita" => BeritaModel::where('id_berita', '=', $idBerita)->first(),
 
         ];
@@ -39,24 +51,37 @@ class HomeController extends Controller
     public function moreBerita()
     {
         $data = [
-            "logo" => LogoModel::first(),
+            "header" => $this->headerData(),
             "berita" => BeritaModel::all(),
         ];
         return view('frontend.more_berita', $data);
     }
+    // #Berita
 
-    public function detailJurusan()
+    // Jurusan
+    public function detailJurusan($idJurusan)
     {
         $data = [
-            "logo" => LogoModel::first(),
-            "jurusan" => JurusanModel::all(),
+            "header" => $this->headerData(),
+            "jurusan" => JurusanModel::where('id_jurusan', '=', $idJurusan)->first(),
+
         ];
         return view('frontend.detail_jurusan', $data);
     }
+    public function moreJurusan()
+    {
+        $data = [
+            "header" => $this->headerData(),
+            "jurusan" => JurusanModel::all(),
+
+        ];
+        return view('frontend.more_jurusan', $data);
+    }
+    // #Jurusan
     public function detailOrganisasi()
     {
         $data = [
-            "logo" => LogoModel::first(),
+            "header" => $this->headerData(),
             "organisasi" => OrganisasiModel::all(),
         ];
         return view('frontend.detail_organisasi', $data);
@@ -64,9 +89,25 @@ class HomeController extends Controller
     public function detailAbout()
     {
         $data = [
-            "logo" => LogoModel::first(),
+            "header" => $this->headerData(),
             "about" => AboutModel::first(),
         ];
         return view('frontend.detail_about', $data);
+    }
+    public function detailVisiMisi()
+    {
+        $data =[
+            "header" => $this->headerData(),
+            "about" => AboutModel::first(),
+        ];
+        return view('frontend.detail_visi_misi', $data);
+    }
+    public function contact()
+    {
+        $data =[
+            "header" => $this->headerData(),
+            "about" => AboutModel::first(),
+        ];
+        return view('frontend.contact', $data);
     }
 }

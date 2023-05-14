@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="">Description</label>
             <textarea name="description" class="summernote" cols="160" rows="5">{{ $about['description'] }}</textarea>
-        </div>      
+        </div>
         <div class="form-group">
             <label for="">Gambar</label>
             <input type="file" name="gambar" class="form-control" id="">
@@ -28,6 +28,10 @@
         <div class="form-group">
             <label for="">Misi</label><br>
             <textarea name="misi" class="summernote" cols="160" rows="5">{{ $about['misi'] }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Map</label>
+            <textarea name="map_embed" class="summernote" cols="160" rows="5">{{ $about['map_embed'] }}</textarea>
         </div>
         <button type="submit" class="btn btn-success">Ubahkan</button>
     </form>

@@ -13,7 +13,7 @@ class AboutController extends Controller
         $data = AboutModel::first();
         return view('admin.pages.about.about', compact('data'));
     }
-    
+
     public function detail($idAbout)
     {
         $data = AboutModel::where("id_about", "=", $idAbout)->first();
@@ -31,6 +31,7 @@ class AboutController extends Controller
             "description" => "required",
             "visi" => "required",
             "misi" => "required",
+            "map_embed" => "required",
         ]);
         $about = AboutModel::where("id_about", "=", $idAbout)->first();
         $cekGambar = $request->hasFile('gambar');
@@ -51,7 +52,8 @@ class AboutController extends Controller
             "description" => $request->description,
             "gambar" => ($cekGambar) ? $nama_file : $about['gambar'],
             "visi" => $request->visi,
-            "misi" => $request->misi
+            "misi" => $request->misi,
+            "map_embed" => $request->map_embed
         ]);
 
         if ($update){

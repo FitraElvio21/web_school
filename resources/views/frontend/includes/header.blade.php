@@ -1,9 +1,10 @@
+
 <header id="site-header" class="fixed-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke">
             <h1>
                 <a class="navbar-brand" href="index.html">
-                    <img class="img-fluid" src="/images/logo/{{ $logo->logo }}" alt=" " width="40"> {{ $logo->nama }}
+                    <img class="img-fluid" src="/images/logo/{{ $header['logo']->logo }}" alt=" " width="40"> {{ $header['logo']->nama }}
                 </a>
             </h1>
             <!-- if logo is image enable this
@@ -20,10 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
@@ -31,18 +29,40 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        Akademik
+                                        Profile
                                         <i class="fa-solid fa-caret-down"></i>
                                     </a>
+
                                     <ul class="dropdown-menu dropdown-menu-dark">
-                                        <li><a class="dropdown-item" href="#">Fakultas Ilmu Komputer</a></li>
+                                        <li><a class="dropdown-item" href="/detail-visi-misi">Visi Dan Misi Sekolah</a></li>
                                     </ul>
+
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Jurusan
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        @foreach ($header['jurusan'] as $item)
+                                        <li><a class="dropdown-item" href="#">{{ $item->jurusan }}</a></li>
+                                        @endforeach
+                                    </ul>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact Us</a>
                     </li>
                     <!-- search button -->
                     <div class="search-right">

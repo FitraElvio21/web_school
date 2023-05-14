@@ -9,23 +9,56 @@
     <!--//header-->
 
     <!-- banner section -->
-    <section id="home" class="w3l-banner py-5">
-        <div class="container pt-5 pb-md-4">
-            <div class="row align-items-center">
-                <div class="col-md-6 banner-left pt-md-0 pt-5">
-                    <h3 class="mb-sm-4 mb-3 title">This is the new way<br> to Learn <span class="type-js"><span
-                                class="text-js">Online</span></span></h3>
-                    <div class="mt-md-5 mt-4 mb-lg-0 mb-4">
-                        <a class="btn button-style" href="about.html">Get Started<i class="fa fa-angle-double-right"
-                                aria-hidden="true"></i></a>
+    {{-- carousel --}}
+    <section id="home" class="w3l-banner">
+        <!-- Carousel -->
+        <div id="kampus" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#kampus" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#kampus" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#kampus" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZW1wbG95ZWV8ZW58MHx8MHx8&w=1000&q=80"
+                        alt="Los Angeles" class="d-block w-100">
+                    <div class="carousel-caption">
+                        <h3>Selamat Datang Di Mercubuana</h3>
+                        <p>Universitas terbaik se Jogjakarta</p>
                     </div>
                 </div>
-                <div class="col-md-6 banner-right mt-md-0 mt-4">
-                    <img class="img-fluid" src="frontend_assets/images/b1.png" alt=" ">
+                <div class="carousel-item">
+                    <img src="https://media.istockphoto.com/id/507009337/photo/students-helping-each-other.jpg?b=1&s=170667a&w=0&k=20&c=q4PFTZhQLcPCS3NvULCn0dcqqsFFrW3tNIOpIyOsXnk="
+                        alt="Chicago" class="d-block w-100">
+                    <div class="carousel-caption">
+                        <h3>Belajar menjadi lebih mudah</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://media.istockphoto.com/id/1361844763/photo/group-of-high-school-students-cooperating-while-e-learning-on-laptop-in-the-classroom.jpg?b=1&s=170667a&w=0&k=20&c=p8nt3pk9MHj-lVzEDsX9ijOyc7c0NWrp5gof_qHvNRM="
+                        alt="New York" class="d-block w-100">
+                    <div class="carousel-caption">
+                        <h3>Bangun masa depanmu bersama kami!</h3>
+                        <p></p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#kampus" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#kampus" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
     </section>
+    {{-- //carousel --}}
     <!-- //banner section -->
     <!-- banner bottom section -->
     <div class="w3l-index-block4 pb-5">
@@ -38,7 +71,7 @@
                 <div class="row">
                     @foreach ($jurusan as $item)
                         <div class="col-lg-4 col-md-6 features15-col-text d-flex align-items-stretch">
-                            <a href="courses.html" class="d-flex feature-unit align-items-center">
+                            <a href="{{ '/detail-jurusan/' . $item->id_jurusan }}" class="d-flex feature-unit align-items-center">
                                 <div class="col-4">
                                     <div class="features15-info">
                                         <img src="{{ '/images/jurusan/' . $item->foto }}" alt="{{ $item->foto }}"
@@ -56,7 +89,7 @@
                     @endforeach
                 </div>
                 <div class="text-center my-5">
-                    <a class="btn button-style button-2 mt-lg-10 mt-4" href="/detail-jurusan">Lihat Selengkapnya<i
+                    <a class="btn button-style button-2 mt-lg-10 mt-4" href="/more-jurusan">Lihat Selengkapnya<i
                             class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 </div>
             </div>
