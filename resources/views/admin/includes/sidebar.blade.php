@@ -36,6 +36,12 @@
                 </a>
             </li>
             <li>
+                <a href="/admin/carousel/">
+                    <i class="pe-7s-albums"></i>
+                    <p>Carousel</p>
+                </a>
+            </li>
+            <li>
                 <a href="/admin/portfolio/">
                     <i class="pe-7s-portfolio"></i>
                     <p>Portfolio</p>

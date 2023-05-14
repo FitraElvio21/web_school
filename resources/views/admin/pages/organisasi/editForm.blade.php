@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label for="">Deskripsi</label><br>
-            <textarea name="deskripsi" id="deskripsi" cols="186" rows="5">{{ $organisasi['deskripsi'] }}</textarea>
+            <textarea name="deskripsi" id="deskripsi" cols="161" rows="5">{{ $organisasi['deskripsi'] }}</textarea>
         </div>
         <div class="form-group">
             <label for="">Gambar</label>

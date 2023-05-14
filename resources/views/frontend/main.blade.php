@@ -18,7 +18,9 @@ Author URL: http://w3layouts.com
     <link rel="stylesheet" href="/frontend_assets/css/carousel.css">
 
     {{-- fontawesome css --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -31,50 +33,25 @@ Author URL: http://w3layouts.com
             <div class="container">
                 <div class="text-txt">
                     <div class="row sub-columns">
+
                         <div class="col-lg-4 col-md-6 col-sm-8 sub-one-left">
                             <h6>About </h6>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                                 doloremque
                                 laudantium, totam rem aperiam, eaque ipsa quae ab.</p>
-                            <div class="columns-2">
-                                <ul class="social">
-                                    <li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                         <div class="col-lg-2 col-md-6 col-sm-4 mt-sm-0 mt-5 sub-two-right">
                             <h6>Quick links</h6>
                             <ul>
-                                <li><a href="index.html"><span class="fa fa-angle-double-right mr-2"></span>Home</a>
+                                <li><a href="#"><span class="fa fa-angle-double-right mr-2"></span>Home</a>
                                 </li>
-                                <li><a href="about.html"><span class="fa fa-angle-double-right mr-2"></span>About</a>
+                                <li><a href="/detail-about"><span
+                                            class="fa fa-angle-double-right mr-2"></span>Profile</a>
                                 </li>
-                                <li><a href="courses.html"><span
-                                            class="fa fa-angle-double-right mr-2"></span>Courses</a></li>
-                                <li><a href="contact.html"><span
-                                            class="fa fa-angle-double-right mr-2"></span>Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 sub-two-right pl-lg-5 mt-lg-0 mt-sm-5 mt-4">
-                            <h6>Help & Support</h6>
-                            <ul>
-                                <li><a href="#live"><span class="fa fa-angle-double-right mr-2"></span>Live
-                                        Chart</a></li>
-                                <li><a href="#faq"><span class="fa fa-angle-double-right mr-2"></span>Faq</a>
+                                <li><a href="/more-jurusan"><span
+                                            class="fa fa-angle-double-right mr-2"></span>Jurusan</a></li>
+                                <li><a href="/contact"><span class="fa fa-angle-double-right mr-2"></span>Contact</a>
                                 </li>
-                                <li><a href="#support"><span class="fa fa-angle-double-right mr-2"></span>Support</a>
-                                </li>
-                                <li><a href="#terms"><span class="fa fa-angle-double-right mr-2"></span>Terms
-                                        of Services</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3 col-sm-6 sub-one-left mt-lg-0 mt-sm-5 mt-4">
@@ -288,7 +265,9 @@ Author URL: http://w3layouts.com
 
     <!--bootstrap-->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
     <!-- //bootstrap-->
     <!-- //Js scripts -->
 </body>

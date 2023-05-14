@@ -30,7 +30,7 @@ Detail Jurusan
                     <div class="row">
                         @foreach ($jurusan as $item)
                             <div class="col-lg-4 col-md-6 features15-col-text d-flex align-items-stretch">
-                                <a href="courses.html" class="d-flex feature-unit align-items-center">
+                                <a href="{{ '/detail-jurusan/' . $item->id_jurusan }}" class="d-flex feature-unit align-items-center">
                                     <div class="col-4">
                                         <div class="features15-info">
                                             <img src="{{ '/images/jurusan/' . $item->foto }}" alt="{{ $item->foto }}"

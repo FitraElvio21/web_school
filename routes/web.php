@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\JurusanController;
@@ -124,6 +125,13 @@ Route::group(['middleware' => 'cek-auth'], function () {
     Route::put('/admin/organisasi/update/{idOrganisasi}', [OrganisasiController::class, 'update']);
     Route::delete('/admin/organisasi/delete/{idOrganisasi}', [OrganisasiController::class, 'delete']);
     Route::get('/admin/organisasi/detail-organisasi/{idOrganisasi}', [OrganisasiController::class, 'detail']);
+    // Carousel
+    Route::get('/admin/carousel/', [CarouselController::class, 'index']);
+    Route::get('/admin/carousel/create-form', [CarouselController::class, 'createForm']);
+    Route::post('/admin/carousel/create', [CarouselController::class, 'create']);
+    Route::get('/admin/carousel/edit-form/{idCarousel}', [CarouselController::class, 'editForm']);
+    Route::put('/admin/carousel/update/{idCarousel}', [CarouselController::class, 'update']);
+    Route::delete('/admin/carousel/delete/{idCarousel}', [CarouselController::class, 'delete']);
     // Pesan
     Route::get('/admin/pesan/', [PesanController::class, 'index']);
     Route::delete('/admin/pesan/delete/{idPesan}', [PesanController::class, 'delete']);

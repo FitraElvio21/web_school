@@ -3,7 +3,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke">
             <h1>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#a">
                     <img class="img-fluid" src="/images/logo/{{ $header['logo']->logo }}" alt=" " width="40"> {{ $header['logo']->nama }}
                 </a>
             </h1>
@@ -53,7 +53,7 @@
 
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                         @foreach ($header['jurusan'] as $item)
-                                        <li><a class="dropdown-item" href="#">{{ $item->jurusan }}</a></li>
+                                        <li><a class="dropdown-item" href="{{ '/detail-jurusan/' . $item->id_jurusan }}">{{ $item->jurusan }}</a></li>
                                         @endforeach
                                     </ul>
 
