@@ -7,7 +7,6 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <a href="/admin/profile/create-form" class="btn btn-primary mb-3">Tambah Data</a>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -32,11 +31,6 @@
                             <td>
                                 <a href="{{ '/admin/profile/edit-form/' . $item->id_profile }}"
                                     class="btn btn-warning"><i class="pe-7s-pen" style="font-size:20px;"></i></a>
-                                <form action="{{ '/admin/profile/delete/' . $item->id_profile }}" method="post"
-                                    onsubmit="return confirm('Apakah anda yakin ingin hapus data ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:20px;"></i></button>
                             </td>
                         </tr>
                     @endforeach

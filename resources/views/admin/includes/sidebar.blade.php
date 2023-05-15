@@ -41,10 +41,16 @@
                     <p>Carousel</p>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="/admin/portfolio/">
                     <i class="pe-7s-portfolio"></i>
                     <p>Portfolio</p>
+                </a>
+            </li> --}}
+            <li>
+                <a href="/admin/guru/">
+                    <i class="pe-7s-id"></i>
+                    <p>Guru</p>
                 </a>
             </li>
             <li>
@@ -55,7 +61,7 @@
             </li>
             <li>
                 <a href="/admin/logo/">
-                    <i class="pe-7s-id"></i>
+                    <i class="pe-7s-photo"></i>
                     <p>Logo</p>
                 </a>
             </li>
@@ -71,15 +77,15 @@
                     <p>pesan</p>
                 </a>
             </li>
-            {{-- <li>
+            <li>
                 <a href="/admin/prestasi/">
                     <i class="pe-7s-medal"></i>
                     <p>Prestasi</p>
                 </a>
-            </li> --}}
+            </li>
             <li>
                 <a href="/admin/jurusan/">
-                    <i class="pe-7s-medal"></i>
+                    <i class="pe-7s-study"></i>
                     <p>Jurusan</p>
                 </a>
             </li>

@@ -32,9 +32,9 @@ Detail Organisasi
                                     alt=" "></a>
                         </div>
                         <div class="right-team-9">
-                            <h6><a href="#team" class="title-team-32">{{ $item->organisasi }}</a></h6>
+                            <h6><a href="#team" class="title-team-32"><?=$item->organisasi ?></a></h6>
                             {{-- <p class="sm-text-32">{{ $item->deskripsi }}</p> --}}
-                            <p>{{ $item->deskripsi }}</p>
+                            <p><?= $item->deskripsi ?></p>
                         </div>
                     </div>
                 @empty

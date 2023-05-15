@@ -33,6 +33,10 @@
             <label for="">Map</label>
             <textarea name="map_embed" class="summernote" cols="160" rows="5">{{ $about['map_embed'] }}</textarea>
         </div>
+        <div class="form-group">
+            <label for="">Small Map</label>
+            <textarea name="small_map_embed" class="summernote" cols="160" rows="5">{{ $about['small_map_embed'] }}</textarea>
+        </div>
         <button type="submit" class="btn btn-success">Ubahkan</button>
     </form>
 @endsection

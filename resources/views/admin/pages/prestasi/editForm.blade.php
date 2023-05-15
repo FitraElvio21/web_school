@@ -8,6 +8,7 @@
     <h1>Ubah Data Prestasi</h1>
     <form action="/admin/prestasi/update/{{ $prestasi['id_prestasi'] }}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="form-group">
             <label for="">Judul</label>
             <input type="text" name="judul" class="form-control" id="" value="{{ $prestasi['judul'] }}">

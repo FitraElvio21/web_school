@@ -10,6 +10,10 @@
         @csrf
         @method('PUT')
         <div class="form-group">
+            <label for="">Judul</label>
+            <input type="text" name="judul" class="form-control" id="" value="{{ $carousel['judul'] }}">
+        </div>
+        <div class="form-group">
             <label for="">description</label><br>
             <textarea name="description" id="description" cols="161" rows="5">{{ $carousel['description'] }}</textarea>
         </div>

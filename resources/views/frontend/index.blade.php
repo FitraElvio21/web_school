@@ -23,30 +23,15 @@
 
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZW1wbG95ZWV8ZW58MHx8MHx8&w=1000&q=80"
-                        alt="Los Angeles" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <h3>Selamat Datang Di Mercubuana</h3>
-                        <p>Universitas terbaik se Jogjakarta</p>
+                @foreach ($carousel as $index => $item)
+                    <div class="carousel-item {{ ($index==0) ? 'active' : '' }}">
+                        <img src="{{ '/images/carousel/' . $item->gambar }}" alt="{{ $item->gambar }}" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>{{ $item->judul }}</h3>
+                            <p>{{ $item->description }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="https://media.istockphoto.com/id/507009337/photo/students-helping-each-other.jpg?b=1&s=170667a&w=0&k=20&c=q4PFTZhQLcPCS3NvULCn0dcqqsFFrW3tNIOpIyOsXnk="
-                        alt="Chicago" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <h3>Belajar menjadi lebih mudah</h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="https://media.istockphoto.com/id/1361844763/photo/group-of-high-school-students-cooperating-while-e-learning-on-laptop-in-the-classroom.jpg?b=1&s=170667a&w=0&k=20&c=p8nt3pk9MHj-lVzEDsX9ijOyc7c0NWrp5gof_qHvNRM="
-                        alt="New York" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <h3>Bangun masa depanmu bersama kami!</h3>
-                        <p></p>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- Left and right controls/icons -->
@@ -71,7 +56,8 @@
                 <div class="row">
                     @foreach ($jurusan as $item)
                         <div class="col-lg-4 col-md-6 features15-col-text d-flex align-items-stretch">
-                            <a href="{{ '/detail-jurusan/' . $item->id_jurusan }}" class="d-flex feature-unit align-items-center">
+                            <a href="{{ '/detail-jurusan/' . $item->id_jurusan }}"
+                                class="d-flex feature-unit align-items-center">
                                 <div class="col-4">
                                     <div class="features15-info">
                                         <img src="{{ '/images/jurusan/' . $item->foto }}" alt="{{ $item->foto }}"
@@ -101,7 +87,7 @@
         <div class="container pb-2">
             <div class="row align-items-center">
                 <div class="col-lg-6 left-wthree-img pr-lg-4">
-                    <img src="/images/about/{{ $about->gambar }}" width="300" alt="" class="img-fluid" >
+                    <img src="/images/about/{{ $about->gambar }}" width="300" alt="" class="img-fluid">
                 </div>
                 <div class="col-lg-6 about-right-faq align-self mb-lg-0 mb-5 pl-xl-5">
                     <h6>About Us</h6>
@@ -201,9 +187,10 @@
                                 <a href="{{ '/detail-berita/' . $item->id_berita }}"><img class="berita-gambar"
                                         src="{{ '/images/berita/' . $item->gambar }}" alt="{{ $item->gambar }}"></a>
                                 <div class="blog-info">
+                                    <h5>{{ $item->author . ' - ' . $item->tanggal_post }}</h5>
                                     <h4><a href="{{ '/detail-berita/' . $item->id_berita }}">{{ $item->judul }}</a></h4>
                                     <p>
-                                        <?= substr($item->isi, 0, 200) . '...' ?>
+                                        <?= substr($item->isi, 0, 50) . '...' ?>
                                     </p>
                                     <a href="{{ '/detail-berita/' . $item->id_berita }}">Lihat
                                         Selengkapnya</a>
@@ -222,5 +209,43 @@
         </section>
     </div>
     <!-- //blog section -->
+    {{-- prestasi --}}
+    <div class="w3l-grids-block-5 py-5">
+        <section id="grids5-block" class="pt-md-4 pb-md-5 py-4 mb-5">
+            <div class="container">
+                <div class="title-main text-center mx-auto mb-4">
+                    <h3 class="title-big">Prestasi Telkom Schools</h3>
+                    <p class="sub-title mt-2"></p>
+                </div>
+                <div class="row mt-sm-5 pt-lg-2">
+                    @forelse ($prestasi as $item)
+                        <div class="col-lg-4 col-sm-5 d-flex align-items-stretch">
+                            <div class=" grids5-info">
+                                <a href="{{ '/detail-prestasi/' . $item->id_prestasi }}"><img class="prestasi-gambar"
+                                        src="{{ '/images/prestasi/' . $item->gambar }}" alt="{{ $item->gambar }}"></a>
+                                <div class="blog-info">
+                                    <h5>{{ $item->author . ' - ' . $item->tanggal_post }}</h5>
+                                    <h4><a href="{{ '/detail-prestasi/' . $item->id_prestasi }}">{{ $item->judul }}</a>
+                                    </h4>
+                                    <p>
+                                        <?= substr($item->description, 0, 0) . '...' ?>
+                                    </p>
+                                    <a href="{{ '/detail-prestasi/' . $item->id_prestasi }}">Lihat
+                                        Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <h3>Prestasi tidak tersedia</h3>
+                    @endforelse
+                </div>
+                <div class="text-center my-5">
+                    <a class="btn button-style button-2 mt-lg-10 mt-4" href="/more-prestasi">Lihat Selengkapnya<i
+                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+    {{-- //prestasi --}}
     <!-- footer -->
 @endsection

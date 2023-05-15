@@ -36,24 +36,25 @@ Contact Us
                 <div class="col-lg-6 content-form-right p-0">
                     <div class="form-w3ls p-md-5 p-4">
                         <h4 class="mb-4 sec-title-w3">Send us a message</h4>
-                        <form method="post" action="#">
+                        <form action="/admin/pesan/create" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-sm-6 form-group pr-sm-1">
-                                    <input class="form-control" type="text" name="w3lName" id="w3lName"
-                                        placeholder="First Name" required="">
+                                    <input class="form-control" type="text" name="nama_depan" id="w3lName"
+                                        placeholder="Nama Depan" required="">
                                 </div>
                                 <div class="col-sm-6 form-group pl-sm-1">
-                                    <input class="form-control" type="text" name="w3lName" id="w3lName"
-                                        placeholder="Last Name" required="">
+                                    <input class="form-control" type="text" name="nama_belakang" id="w3lName"
+                                        placeholder="Nama Belakang" required="">
                                 </div>
                             </div><br>
                             <div class="form-group">
-                                <input class="form-control" type="email" name="w3lSender" id="w3lSender"
+                                <input class="form-control" type="email" name="email" id="w3lSender"
                                     placeholder="Email" required="">
                             </div><br>
                             <div class="form-group">
-                                <textarea class="form-control" name="w3lMessage" id="w3lMessage"
-                                    placeholder="Message" required=""></textarea>
+                                <textarea class="form-control" name="pesan" id="w3lMessage"
+                                    placeholder="Pesan" required=""></textarea>
                             </div><br>
                             <div class="input-group1 text-right">
                                 <button class="btn button-style" type="submit">Submit

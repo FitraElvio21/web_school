@@ -9,6 +9,10 @@
     <form action="/admin/carousel/create" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
+            <label for="">Judul</label>
+            <input type="text" name="judul" class="form-control" id="">
+        </div>
+        <div class="form-group">
             <label for="">description</label><br>
             <textarea name="description" id="description" cols="161" rows="5"></textarea>
         </div>

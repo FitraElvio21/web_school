@@ -9,4 +9,7 @@
     <p><?= $data->description?></p>
     <p><?= $data->visi?></p>
     <p><?= $data->misi?></p>
+    <p><?= $data->map_embed ?></p>
+    <p><?= $data->small_map_embed ?></p>
+
 @endsection

@@ -1,10 +1,10 @@
-
-<header id="site-header" class="fixed-top">
+<header id="site-header" class="fixed-top" >
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke">
             <h1>
                 <a class="navbar-brand" href="#a">
-                    <img class="img-fluid" src="/images/logo/{{ $header['logo']->logo }}" alt=" " width="40"> {{ $header['logo']->nama }}
+                    <img class="img-fluid" src="/images/logo/{{ $header['logo']->logo }}" alt=" " width="40">
+                    {{ $header['logo']->nama }}
                 </a>
             </h1>
             <!-- if logo is image enable this
@@ -27,16 +27,23 @@
                         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         Profile
                                         <i class="fa-solid fa-caret-down"></i>
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-dark">
-                                        <li><a class="dropdown-item" href="/detail-visi-misi">Visi Dan Misi Sekolah</a></li>
-                                    </ul>
+                                        <li>
+                                            <a class="dropdown-item" href="/more-prestasi">Prestasi</a>
+                                        </li><br>
+                                        <li>
+                                            <a class="dropdown-item" href="/guru">GTK</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="/detail-visi-misi">Visi Dan Misi Sekolah</a>
+                                        </li>
 
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -45,15 +52,16 @@
                         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         Jurusan
                                         <i class="fa-solid fa-caret-down"></i>
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                         @foreach ($header['jurusan'] as $item)
-                                        <li><a class="dropdown-item" href="{{ '/detail-jurusan/' . $item->id_jurusan }}">{{ $item->jurusan }}</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="{{ '/detail-jurusan/' . $item->id_jurusan }}">{{ $item->jurusan }}</a>
+                                            </li>
                                         @endforeach
                                     </ul>
 

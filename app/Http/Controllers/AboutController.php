@@ -32,6 +32,7 @@ class AboutController extends Controller
             "visi" => "required",
             "misi" => "required",
             "map_embed" => "required",
+            "small_map_embed" => "required",
         ]);
         $about = AboutModel::where("id_about", "=", $idAbout)->first();
         $cekGambar = $request->hasFile('gambar');
@@ -53,7 +54,8 @@ class AboutController extends Controller
             "gambar" => ($cekGambar) ? $nama_file : $about['gambar'],
             "visi" => $request->visi,
             "misi" => $request->misi,
-            "map_embed" => $request->map_embed
+            "map_embed" => $request->map_embed,
+            "small_map_embed" => $request->small_map_embed
         ]);
 
         if ($update){

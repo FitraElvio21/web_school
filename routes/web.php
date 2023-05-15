@@ -6,6 +6,8 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\PesanController as FrontendPesanController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\OrganisasiController;
@@ -30,18 +32,26 @@ use Illuminate\Support\Facades\Route;
 // frontend
 Route::get('', [HomeController::class, 'index']);
 // Detail and More
- // berita
+// berita
 Route::get('/detail-berita/{idBerita}', [HomeController::class, 'detailBerita']);
 Route::get('/more-berita', [HomeController::class, 'moreBerita']);
+// prestasi
+Route::get('/detail-prestasi/{idPrestasi}', [HomeController::class, 'detailPrestasi']);
+Route::get('/more-prestasi', [HomeController::class, 'morePrestasi']);
 // jurusan
 Route::get('/detail-jurusan/{idJurusan}', [HomeController::class, 'detailJurusan']);
 Route::get('/more-jurusan', [HomeController::class, 'moreJurusan']);
-
+// guru
+Route::get('/guru', [HomeController::class, 'guru']);
+// organisasi
 Route::get('/detail-organisasi', [HomeController::class, 'detailOrganisasi']);
+// about
 Route::get('/detail-about', [HomeController::class, 'detailAbout']);
 Route::get('/detail-visi-misi', [HomeController::class, 'detailVisiMisi']);
+// contact
 Route::get('/contact', [HomeController::class, 'contact']);
-
+// pesan
+Route::post('/admin/pesan/create', [FrontendPesanController::class, 'create']);
 // auth
 Route::get('/admin/login', [AuthController::class, 'index']);
 Route::get('/admin/logout', [AuthController::class, 'logout']);
@@ -132,6 +142,13 @@ Route::group(['middleware' => 'cek-auth'], function () {
     Route::get('/admin/carousel/edit-form/{idCarousel}', [CarouselController::class, 'editForm']);
     Route::put('/admin/carousel/update/{idCarousel}', [CarouselController::class, 'update']);
     Route::delete('/admin/carousel/delete/{idCarousel}', [CarouselController::class, 'delete']);
+    // Guru
+    Route::get('/admin/guru/', [GuruController::class, 'index']);
+    Route::get('/admin/guru/create-form', [GuruController::class, 'createForm']);
+    Route::post('/admin/guru/create', [GuruController::class, 'create']);
+    Route::get('/admin/guru/edit-form/{idGuru}', [GuruController::class, 'editForm']);
+    Route::put('/admin/guru/update/{idGuru}', [GuruController::class, 'update']);
+    Route::delete('/admin/guru/delete/{idGuru}', [GuruController::class, 'delete']);
     // Pesan
     Route::get('/admin/pesan/', [PesanController::class, 'index']);
     Route::delete('/admin/pesan/delete/{idPesan}', [PesanController::class, 'delete']);

@@ -25,6 +25,9 @@ Author URL: http://w3layouts.com
 
 <body>
 
+
+
+
     @yield('content')
 
     <!-- footer -->
@@ -33,13 +36,11 @@ Author URL: http://w3layouts.com
             <div class="container">
                 <div class="text-txt">
                     <div class="row sub-columns">
-
                         <div class="col-lg-4 col-md-6 col-sm-8 sub-one-left">
                             <h6>About </h6>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab.</p>
+                            <?= $header['profile']->description ?>
                         </div>
+
                         <div class="col-lg-2 col-md-6 col-sm-4 mt-sm-0 mt-5 sub-two-right">
                             <h6>Quick links</h6>
                             <ul>
@@ -68,6 +69,9 @@ Author URL: http://w3layouts.com
                                             aria-hidden="true"></span>London, 235 Terry, 10001</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 sub-one-left mt-lg-0 mt-sm-5 mt-4">
+                            <?= $header['about']->small_map_embed ?>
                         </div>
                     </div>
                 </div>
@@ -269,6 +273,11 @@ Author URL: http://w3layouts.com
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <!-- //bootstrap-->
+    {{-- sweet alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @include('frontend.includes.message')
+
     <!-- //Js scripts -->
 </body>
 

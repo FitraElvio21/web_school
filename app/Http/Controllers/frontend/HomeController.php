@@ -5,12 +5,16 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AboutModel;
 use App\Models\BeritaModel;
+use App\Models\CarouselModel;
+use App\Models\GuruModel;
 use App\Models\JurusanModel;
 use App\Models\LogoModel;
 use App\Models\OrganisasiModel;
 use App\Models\PrestasiModel;
+use App\Models\ProfileModel;
 use App\Models\TestimoniModel;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class HomeController extends Controller
 {
@@ -20,7 +24,8 @@ class HomeController extends Controller
         return [
             "logo" => LogoModel::first(),
             "jurusan" => JurusanModel::all(),
-            "about" => AboutModel::all(),
+            "about" => AboutModel::first(),
+            "profile" => ProfileModel::first(),
         ];
     }
 
@@ -35,6 +40,7 @@ class HomeController extends Controller
             "organisasi" => OrganisasiModel::limit(4)->get(),
             "header" => $this->headerData(),
             "about" => AboutModel::first(),
+            "carousel" => CarouselModel::orderBy('tanggal_post', 'ASC')->get(),
         ];
         return view('frontend.index', $data);
     }
@@ -57,6 +63,26 @@ class HomeController extends Controller
         return view('frontend.more_berita', $data);
     }
     // #Berita
+
+    // prestasi
+    public function detailPrestasi($idPrestasi)
+    {
+        $data = [
+            "header" => $this->headerData(),
+            "prestasi" => PrestasiModel::where('id_prestasi', '=', $idPrestasi)->first(),
+
+        ];
+        return view('frontend.detail_prestasi', $data);
+    }
+    public function morePrestasi()
+    {
+        $data = [
+            "header" => $this->headerData(),
+            "prestasi" => PrestasiModel::all(),
+        ];
+        return view('frontend.more_prestasi', $data);
+    }
+    // #prestasi
 
     // Jurusan
     public function detailJurusan($idJurusan)
@@ -109,5 +135,13 @@ class HomeController extends Controller
             "about" => AboutModel::first(),
         ];
         return view('frontend.contact', $data);
+    }
+    public function guru()
+    {
+        $data = [
+            "header" => $this->headerData(),
+            "guru" => GuruModel::all(),
+        ];
+        return view('frontend.guru', $data);
     }
 }

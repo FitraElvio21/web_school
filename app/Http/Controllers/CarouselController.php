@@ -20,7 +20,7 @@ class CarouselController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            "description" => "required",
+            "judul" => "required",
             "gambar" => "required|max:2000"
         ]);
         $file = $request->file('gambar');
@@ -34,6 +34,7 @@ class CarouselController extends Controller
 
         $carousel = CarouselModel::create([
             "id_carousel"=>$uuid,
+            "judul" =>$request->judul,
             "description" =>$request->description,
             "gambar"=>$nama_file
         ]);
@@ -54,22 +55,23 @@ class CarouselController extends Controller
             "description" => "required"
         ]);
         $carousel = CarouselModel::where("id_carousel", "=", $idCarousel)->first();
-        $cekGambar = $request->hasFile('foto');
+        $cekGambar = $request->hasFile('gambar');
         $nama_file = "";
         if ($cekGambar){
-            $oldGambar = public_path() . "/images/carousel/" . $carousel['foto'];
+            $oldGambar = public_path() . "/images/carousel/" . $carousel['gambar'];
 
             if (file_exists($oldGambar)) {
                 unlink($oldGambar);
             }
-            $file = $request->file('foto');
+            $file = $request->file('gambar');
             $nama_file = rand(1111,9999) . $file->getClientOriginalName();
             $file->move(public_path() . "/images/carousel/", $nama_file);
         }
         $update = CarouselModel::where('id_carousel', $idCarousel);
         $update->update([
+            "judul" => $request->judul,
             "description" => $request->description,
-            "foto" => ($cekGambar) ? $nama_file : $carousel['foto']
+            "gambar" => ($cekGambar) ? $nama_file : $carousel['gambar']
         ]);
 
         if ($update){
@@ -82,7 +84,7 @@ class CarouselController extends Controller
     {
         $old_data = CarouselModel::where("id_carousel", "=", $idCarousel)->first();
 
-        $path = public_path() . "/images/carousel/" . $old_data['foto'];
+        $path = public_path() . "/images/carousel/" . $old_data['gambar'];
 
         if(file_exists($path)){
             unlink($path);

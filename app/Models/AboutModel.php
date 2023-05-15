@@ -17,6 +17,7 @@ class AboutModel extends Model
         "visi",
         "misi",
         "map_embed",
+        "small_map_embed",
     ];
     public $timestamps = false;
 }
