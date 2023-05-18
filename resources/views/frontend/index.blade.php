@@ -30,6 +30,33 @@
                         <div class="carousel-caption">
                             <h3>{{ $item->judul }}</h3>
                             <p>{{ $item->description }}</p>
+                            {{-- tampilkan tombol hanya di slide carousel pertama --}}
+
+                            @php
+                                // buat int untuk tanggal sekarang
+                                $timestamp1 = strtotime(date("Y-m-d"));
+                                $tanggal_sekarang = intval($timestamp1);
+
+                                // buat int untuk tanggal_buka
+                                $timestamp2 = strtotime($golongan_terakhir->tanggal_buka);
+                                $tanggal_buka = intval($timestamp2);
+
+                                // buat int untuk tanggal_tutup
+                                $timestamp3 = strtotime($golongan_terakhir->tanggal_tutup);
+                                $tanggal_tutup = intval($timestamp3);
+
+
+                            @endphp
+                            {{-- tampilkan tombol hanya di slide carousel yang pertama --}}
+                            @if ($index == 0)
+                                {{-- cek apakah tanggal sekarang itu lebih dari/sama dengan tanggalbuka DAN --}}
+                                {{-- tanggal sekarang kurang dari sama dengan tanggal_tutup --}}
+                                {{-- jika benar, maka tampilkan tombol --}}
+                                @if ($tanggal_sekarang >= $tanggal_buka && $tanggal_sekarang <= $tanggal_tutup )
+                                    <a href="" class="btn btn-primary btn-lg">Daftar Golongan {{ $golongan_terakhir->golongan }}</a>
+                                @endif
+
+                            @endif
                         </div>
                     </div>
                 @endforeach

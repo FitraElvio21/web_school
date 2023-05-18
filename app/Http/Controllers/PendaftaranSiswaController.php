@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GolonganModel;
+use App\Models\JurusanModel;
 use App\Models\PendaftaranSiswaModel;
 use Faker\Factory;
 use Illuminate\Http\Request;
@@ -15,7 +17,12 @@ class PendaftaranSiswaController extends Controller
     }
     public function createForm()
     {
-        return view('admin.pages.pendaftaran_siswa.addForm');
+
+        $data = [
+            "jurusan" => JurusanModel::all(),
+            "golongan" => GolonganModel::all(),
+        ];
+        return view('admin.pages.pendaftaran_siswa.addForm',$data);
     }
     public function create(Request $request)
     {
@@ -36,7 +43,7 @@ class PendaftaranSiswaController extends Controller
         if(!$request->hasFile('pass_foto')){
             return redirect()->back()->withErrors('Kesalahan pada upload passFoto!');
         }
-        $uploadImages = $file->move(public_path() . "/images/pendaftaranSiswa/", $nama_file);
+        $uploadImages = $file->move(public_path() . "/images/pendaftaran_siswa/", $nama_file);
         $uuid = Factory::create('id_ID')->uuid();
 
         $pendaftaranSiswa = PendaftaranSiswaModel::create([
@@ -57,46 +64,50 @@ class PendaftaranSiswaController extends Controller
             "agama" =>$request->agama,
         ]);
         if($pendaftaranSiswa){
-            return redirect('/admin/pendaftaranSiswa')->withSuccess('Data berhasil ditambahkan');
+            return redirect('/admin/pendaftaran_siswa')->withSuccess('Data berhasil ditambahkan');
         }else{
             return redirect()->back()->withErrors('Data gagal ditambahkan');
         }
     }
     public function editForm($idPendaftaranSiswa)
     {
-        $pendaftaranSiswa = PendaftaranSiswaModel::where("id_pendaftaran_siswa", "=", $idPendaftaranSiswa)->first();
-        return view('admin.pages.pendaftaranSiswa.editForm', compact('pendaftaranSiswa'));
+        $data = [
+            "jurusan" => JurusanModel::all(),
+            "golongan" => GolonganModel::all(),
+            "pendaftaranSiswa" => PendaftaranSiswaModel::where("nisn", "=", $idPendaftaranSiswa)->first()
+        ];
+        return view('admin.pages.pendaftaran_siswa.editForm', $data);
     }
     public function update(Request $request, $idPendaftaranSiswa)
     {
         $this->validate($request,[
+            "nisn" => "required",
             "nama_depan" => "required",
             "nama_belakang" => "required",
             "jenis_kelamin" => "required",
             "alamat" => "required",
             "nama_ayah" => "required",
-            "pekerjaan_ayah" => "required",
-            "penghasilan_ayah_perbulan" => "required",
             "nama_ibu" => "required",
-            "pekerjaan_ibu" => "required",
-            "penghasilan_ibu_perbulan" => "required",
             "agama" => "required",
         ]);
-        $pendaftaranSiswa = PendaftaranSiswaModel::where("id_pendaftaran_siswa", "=", $idPendaftaranSiswa)->first();
+        $pendaftaranSiswa = PendaftaranSiswaModel::where("nisn", "=", $idPendaftaranSiswa)->first();
         $cekPassFoto = $request->hasFile('pass_foto');
         $nama_file = "";
         if ($cekPassFoto){
-            $oldPassFoto = public_path() . "/images/pendaftaranSiswa/" . $pendaftaranSiswa['pass_foto'];
+            $oldPassFoto = public_path() . "/images/pendaftaran_siswa/" . $pendaftaranSiswa['pass_foto'];
 
             if (file_exists($oldPassFoto)) {
                 unlink($oldPassFoto);
             }
             $file = $request->file('pass_foto');
             $nama_file = rand(1111,9999) . $file->getClientOriginalName();
-            $file->move(public_path() . "/images/pendaftaranSiswa/", $nama_file);
+            $file->move(public_path() . "/images/pendaftaran_siswa/", $nama_file);
         }
-        $update = PendaftaranSiswaModel::where('id_pendaftaran_siswa', $idPendaftaranSiswa);
+        $update = PendaftaranSiswaModel::where('nisn', $idPendaftaranSiswa);
         $update->update([
+            "nisn"=>$request->nisn,
+            "id_jurusan"=>$request->id_jurusan,
+            "id_golongan"=>$request->id_golongan,
             "nama_depan" =>$request->nama_depan,
             "nama_belakang" =>$request->nama_belakang,
             "jenis_kelamin" =>$request->jenis_kelamin,
@@ -112,33 +123,36 @@ class PendaftaranSiswaController extends Controller
         ]);
 
         if ($update){
-            return redirect('admin/pendaftaranSiswa')->withSuccess("pendaftaranSiswa berhasil diubah");
+            return redirect('admin/pendaftaran_siswa')->withSuccess("pendaftaranSiswa berhasil diubah");
         }else{
             return redirect()->back()->withErrors("pendaftaranSiswa gagal diubah");
         }
     }
     public function delete($idPendaftaranSiswa)
     {
-        $old_data = PendaftaranSiswaModel::where("id_pendaftaran_siswa", "=", $idPendaftaranSiswa)->first();
+        $old_data = PendaftaranSiswaModel::where("nisn", "=", $idPendaftaranSiswa)->first();
 
-        $path = public_path() . "/images/pendaftaranSiswa/" . $old_data['passFoto'];
-
+        $path = public_path(). "/images/pendaftaran_siswa/" . $old_data['pass_foto'];
+        // die($path);
         if(file_exists($path)){
+            // die("gambar ada");
             unlink($path);
         }
+        // die("gambar tidak ada");
 
-        $pendaftaranSiswa = PendaftaranSiswaModel::where("id_pendaftaran_siswa", "=", $idPendaftaranSiswa);
+        $pendaftaranSiswa = PendaftaranSiswaModel::where("nisn", "=", $idPendaftaranSiswa);
         $pendaftaranSiswa->delete();
 
         if($pendaftaranSiswa){
-            return redirect('admin/pendaftaranSiswa/')->withSuccess("Data pendaftaranSiswa berhasil di hapus");
+            return redirect('admin/pendaftaran_siswa/')->withSuccess("Data pendaftaranSiswa berhasil di hapus");
         }else{
             return redirect()->back()->withErrors("Data pendaftaranSiswa gagal di hapus");
         }
     }
     public function detail($idPendaftaranSiswa)
     {
-        $data = PendaftaranSiswaModel::where("id_pendaftaran_siswa", "=", $idPendaftaranSiswa)->first();
+        $data = PendaftaranSiswaModel::where("nisn", "=", $idPendaftaranSiswa)->first();
+        // dd($data);
         return view('admin.pages.pendaftaran_siswa.detail', compact('data'));
     }
 }

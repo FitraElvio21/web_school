@@ -69,6 +69,12 @@
     object-fit: cover;
 }
 
+.carousel-item .btn{
+    position: absolute;
+    left: 0;
+    bottom: 30%;
+}
+
 @media (max-width:750px) {
     .carousel-caption p{
         top: 50%;

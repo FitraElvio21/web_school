@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutModel;
 use App\Models\BeritaModel;
 use App\Models\CarouselModel;
+use App\Models\GolonganModel;
 use App\Models\GuruModel;
 use App\Models\JurusanModel;
 use App\Models\LogoModel;
@@ -43,7 +44,9 @@ class HomeController extends Controller
             "about" => AboutModel::first(),
             "carousel" => CarouselModel::orderBy('tanggal_post', 'ASC')->get(),
             "service" => ServiceModel::limit(3)->get(),
+            "golongan_terakhir" => GolonganModel::orderBy('tanggal_buka', 'DESC')->first()
         ];
+
         return view('frontend.index', $data);
     }
     // Berita

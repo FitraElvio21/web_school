@@ -13,12 +13,22 @@
             <input type="text" name="nisn" class="form-control" id="">
         </div>
         <div class="form-group">
-            <label for="">ID Jurusan</label>
-            <input type="text" name="id_jurusan" class="form-control" id="">
+            <label for="">Jurusan</label> <br>
+            <select name="id_jurusan" id="">
+                <option value="#">Pilih Jurusan</option>
+                @foreach ($jurusan as $item)
+                    <option value="{{ $item->id_jurusan }}">{{ $item->jurusan }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            <label for="">ID Golongan</label>
-            <input type="text" name="id_golongan" class="form-control" id="">
+            <label for="">Golongan</label> <br>
+            <select name="id_golongan" id="">
+                <option value="#">Pilih golongan</option>
+                @foreach ($golongan as $item)
+                    <option value="{{ $item->id_golongan }}">{{ $item->golongan }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="">Nama Depan</label>

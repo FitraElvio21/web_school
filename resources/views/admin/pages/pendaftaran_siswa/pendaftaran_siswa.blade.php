@@ -29,13 +29,13 @@
                             <td><img src="{{ '/images/pendaftaran_siswa/' . $item->pass_foto }}" alt="{{ $item->pass_foto }}" width="150"
                                 height="150"></td>
                             <td>
-                                <a href="{{ '/admin/pendaftaran_siswa/edit-form/' . $item->pendaftaran_siswa }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
-                                <form action="{{ '/admin/pendaftaran_siswa/delete/' . $item->pendaftaran_siswa }}" method="post"
+                                <a href="{{ '/admin/pendaftaran_siswa/edit-form/' . $item->nisn }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
+                                <form action="{{ '/admin/pendaftaran_siswa/delete/' . $item->nisn }}" method="post"
                                     onsubmit="return confirm('Apakah anda yakin ingin hapus data ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:14px;"></i>Delete</button>
-                                    <a href="{{ '/admin/pendaftaran_siswa/detail/' . $data->pendaftaran_siswa }}" class="btn btn-primary"><i
+                                    <a href="{{ '/admin/pendaftaran_siswa/detail/' . $item->nisn }}" class="btn btn-primary"><i
                                         class="pe-7s-info" style="font-size:14px;"></i> Info Detail</a>
                             </td>
                         </tr>
