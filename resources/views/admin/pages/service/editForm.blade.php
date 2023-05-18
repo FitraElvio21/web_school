@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Ubah Data Service</h1>
-    <form action="/admin/service/update{{ $service['id_service'] }}" method="post" enctype="multipart/form-data">
+    <form action="/admin/service/update/{{ $service['id_service'] }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">

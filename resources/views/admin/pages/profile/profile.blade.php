@@ -30,7 +30,7 @@
                             </td>
                             <td>
                                 <a href="{{ '/admin/profile/edit-form/' . $item->id_profile }}"
-                                    class="btn btn-warning"><i class="pe-7s-pen" style="font-size:20px;"></i></a>
+                                    class="btn btn-warning"><i class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
                             </td>
                         </tr>
                     @endforeach

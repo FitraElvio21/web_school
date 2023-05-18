@@ -21,7 +21,7 @@
                             <td><img src="{{ '/images/logo/' . $data->logo }}" alt="{{ $data->logo }}" width="150"
                                 height="150"></td>
                             <td>
-                                <a href="{{ '/admin/logo/edit-form/' . $data->id_logo }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:20px;"></i></a>
+                                <a href="{{ '/admin/logo/edit-form/' . $data->id_logo }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
                             </td>
                         </tr>
                 </tbody>

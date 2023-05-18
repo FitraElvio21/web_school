@@ -34,12 +34,12 @@
                             <td><img src="{{ '/images/prestasi/' . $item->gambar }}" alt="{{ $item->gambar }}" width="150"
                                 height="150"></td>
                             <td>
-                                <a href="{{ '/admin/prestasi/edit-form/' . $item->id_prestasi }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:20px;"></i></a>
+                                <a href="{{ '/admin/prestasi/edit-form/' . $item->id_prestasi }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
                                 <form action="{{ '/admin/prestasi/delete/' . $item->id_prestasi }}" method="post"
                                     onsubmit="return confirm('Apakah anda yakin ingin hapus data ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:20px;"></i></button>
+                                    <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:14px;"></i>Delete</button>
                             </td>
                         </tr>
                     @endforeach

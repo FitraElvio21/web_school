@@ -7,10 +7,12 @@ use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\PesanController as FrontendPesanController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\OrganisasiController;
+use App\Http\Controllers\PendaftaranSiswaController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PrestasiController;
@@ -149,6 +151,22 @@ Route::group(['middleware' => 'cek-auth'], function () {
     Route::get('/admin/guru/edit-form/{idGuru}', [GuruController::class, 'editForm']);
     Route::put('/admin/guru/update/{idGuru}', [GuruController::class, 'update']);
     Route::delete('/admin/guru/delete/{idGuru}', [GuruController::class, 'delete']);
+    // Golongan
+    Route::get('/admin/golongan/', [GolonganController::class, 'index']);
+    Route::get('/admin/golongan/create-form', [GolonganController::class, 'createForm']);
+    Route::post('/admin/golongan/create', [GolonganController::class, 'create']);
+    Route::get('/admin/golongan/edit-form/{idGolongan}', [GolonganController::class, 'editForm']);
+    Route::put('/admin/golongan/update/{idGolongan}', [GolonganController::class, 'update']);
+    Route::delete('/admin/golongan/delete/{idGolongan}', [GolonganController::class, 'delete']);
+    // Pendaftaran Siswa
+    Route::get('/admin/pendaftaran_siswa/', [PendaftaranSiswaController::class, 'index']);
+    Route::get('/admin/pendaftaran_siswa/create-form', [PendaftaranSiswaController::class, 'createForm']);
+    Route::post('/admin/pendaftaran_siswa/create', [PendaftaranSiswaController::class, 'create']);
+    Route::get('/admin/pendaftaran_siswa/edit-form/{nisn}', [PendaftaranSiswaController::class, 'editForm']);
+    Route::put('/admin/pendaftaran_siswa/update/{nisn}', [PendaftaranSiswaController::class, 'update']);
+    Route::delete('/admin/pendaftaran_siswa/delete/{nisn}', [PendaftaranSiswaController::class, 'delete']);
+    Route::get('/admin/pendaftaran_siswa/detail/{nisn}', [PendaftaranSiswaController::class, 'detail']);
+
     // Pesan
     Route::get('/admin/pesan/', [PesanController::class, 'index']);
     Route::delete('/admin/pesan/delete/{idPesan}', [PesanController::class, 'delete']);

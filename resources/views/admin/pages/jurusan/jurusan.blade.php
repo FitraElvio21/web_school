@@ -30,12 +30,12 @@
                             <td><img src="{{ '/images/jurusan/' . $item->foto }}" alt="{{ $item->foto }}" width="150"
                                 height="150"></td>
                             <td>
-                                <a href="{{ '/admin/jurusan/edit-form/' . $item->id_jurusan }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:20px;"></i></a>
+                                <a href="{{ '/admin/jurusan/edit-form/' . $item->id_jurusan }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
                                 <form action="{{ '/admin/jurusan/delete/' . $item->id_jurusan }}" method="post"
                                     onsubmit="return confirm('Apakah anda yakin ingin hapus data ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:20px;"></i></button>
+                                    <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:14px;"></i>Delete</button>
                             </td>
                         </tr>
                     @endforeach

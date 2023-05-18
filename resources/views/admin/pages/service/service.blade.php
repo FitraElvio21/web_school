@@ -27,12 +27,12 @@
                             <td><img src="{{ '/images/service/' . $item->icon }}" alt="{{ $item->icon }}" width="150"
                                 height="150"></td>
                             <td>
-                                <a href="{{ '/admin/service/edit-form/' . $item->id_service }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:20px;"></i></a>
+                                <a href="{{ '/admin/service/edit-form/' . $item->id_service }}" class="btn btn-warning"><i class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
                                 <form action="{{ '/admin/service/delete/' . $item->id_service }}" method="post"
                                     onsubmit="return confirm('Apakah anda yakin ingin hapus data ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:20px;"></i></button>
+                                    <button class="btn btn-danger"><i class="pe-7s-trash" style="font-size:14px;"></i>Delete</button>
                             </td>
                         </tr>
                     @endforeach

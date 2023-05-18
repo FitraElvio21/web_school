@@ -12,6 +12,7 @@ use App\Models\LogoModel;
 use App\Models\OrganisasiModel;
 use App\Models\PrestasiModel;
 use App\Models\ProfileModel;
+use App\Models\ServiceModel;
 use App\Models\TestimoniModel;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -41,6 +42,7 @@ class HomeController extends Controller
             "header" => $this->headerData(),
             "about" => AboutModel::first(),
             "carousel" => CarouselModel::orderBy('tanggal_post', 'ASC')->get(),
+            "service" => ServiceModel::limit(3)->get(),
         ];
         return view('frontend.index', $data);
     }

@@ -16,6 +16,7 @@ Author URL: http://w3layouts.com
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="/frontend_assets/css/style-starter.css">
     <link rel="stylesheet" href="/frontend_assets/css/carousel.css">
+    {{-- <link rel="stylesheet" href="/frontend_assets/css/service.css"> --}}
 
     {{-- fontawesome css --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -59,14 +60,14 @@ Author URL: http://w3layouts.com
                             <h6>Contact </h6>
                             <div class="column2">
                                 <div class="href1"><span class="fa fa-envelope-o" aria-hidden="true"></span><a
-                                        href="mailto:info@example.com">info@example.com</a>
+                                        href="mailto:info@telkomschools.sch.id">info@telkomschools.sch.id</a>
                                 </div>
                                 <div class="href2"><span class="fa fa-phone" aria-hidden="true"></span><a
-                                        href="tel:+44-000-888-999">+44-000-888-999</a>
+                                        href="tel:(+62 22) 4239 717">(+62 22) 4239 717</a>
                                 </div>
                                 <div>
                                     <p class="contact-para"><span class="fa fa-map-marker"
-                                            aria-hidden="true"></span>London, 235 Terry, 10001</p>
+                                            aria-hidden="true"></span>Jl. Radio Palasari Road, Citeureup, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257</p>
                                 </div>
                             </div>
                         </div>

@@ -29,13 +29,13 @@
                             </td>
                             <td>
                                 <a href="{{ '/admin/guru/edit-form/' . $item->nip }}" class="btn btn-warning"><i
-                                        class="pe-7s-pen" style="font-size:20px;"></i></a>
+                                        class="pe-7s-pen" style="font-size:14px;"></i>Edit</a>
                                 <form action="{{ '/admin/guru/delete/' . $item->nip }}" method="post"
                                     onsubmit="return confirm('Apakah anda yakin ingin hapus data ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger"><i class="pe-7s-trash"
-                                            style="font-size:20px;"></i></button>
+                                            style="font-size:14px;"></i>Delete</button>
                             </td>
                         </tr>
                     @endforeach

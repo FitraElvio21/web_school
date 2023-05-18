@@ -24,8 +24,9 @@
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 @foreach ($carousel as $index => $item)
-                    <div class="carousel-item {{ ($index==0) ? 'active' : '' }}">
-                        <img src="{{ '/images/carousel/' . $item->gambar }}" alt="{{ $item->gambar }}" class="d-block w-100">
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                        <img src="{{ '/images/carousel/' . $item->gambar }}" alt="{{ $item->gambar }}"
+                            class="d-block w-100">
                         <div class="carousel-caption">
                             <h3>{{ $item->judul }}</h3>
                             <p>{{ $item->description }}</p>
@@ -100,7 +101,28 @@
         </div>
     </section>
     <!-- //middle section -->
-    <!-- teams 32 block -->
+    {{-- services
+    <section class="service-section">
+        <div class="title-main text-center mx-auto mb-4">
+            <h3 class="title-big">Services</h3>
+        </div>
+        <div class="row">
+            @foreach ($service as $item)
+                <div class="column service-column">
+                    <div class="card service-card">
+                        <div class="features15-info">
+                            <img src="{{ '/images/service/' . $item->icon }}" alt="{{ $item->icon }}" width="100"
+                                height="100">
+                        </div>
+                        <h3 class="service-title">{{ $item->title }}</h3>
+                        <p class="service-content">{{ $item->description }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section> --}}
+    {{-- //services --}}
+    <!-- organisasi -->
     <section class="w3l-teams-32-main py-5">
         <div class="teams-32 py-md-4">
             <div class="container">
@@ -118,7 +140,7 @@
                                 <h6><a href="#team" class="title-team-32">{{ $item->organisasi }}</a></h6>
                                 {{-- <p class="sm-text-32">{{ $item->deskripsi }}</p> --}}
                                 <p>
-                                    <?= substr($item->deskripsi, 0, 100) . '...' ?>
+                                    <?= substr($item->deskripsi, 0, 80) . '...' ?>
                                 </p>
                             </div>
                         </div>
@@ -133,7 +155,7 @@
             </div>
         </div>
     </section>
-    <!-- //teams 32 block -->
+    <!-- //organisasi -->
     <!-- testimonials -->
     <section class="w3l-companies-hny-6 position-relative">
         <div class="cusrtomer-layout py-5">

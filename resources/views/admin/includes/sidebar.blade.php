@@ -23,12 +23,12 @@
                     <p>Profile</p>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="/admin/service/">
                     <i class="pe-7s-tools"></i>
                     <p>Service</p>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="/admin/berita/">
                     <i class="pe-7s-global"></i>
@@ -93,6 +93,18 @@
                 <a href="/admin/organisasi/">
                     <i class="pe-7s-users"></i>
                     <p>Organisasi</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/golongan/">
+                    <i class="pe-7s-server"></i>
+                    <p>Golongan</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/pendaftaran_siswa/">
+                    <i class="pe-7s-note"></i>
+                    <p>Pendaftaran Siswa</p>
                 </a>
             </li>
         </ul>

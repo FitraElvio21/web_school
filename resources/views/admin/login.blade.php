@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>Signin Template · Bootstrap v5.3</title>
+    <title>Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
@@ -111,7 +111,7 @@
 
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-            
+
         }
     </style>
 
